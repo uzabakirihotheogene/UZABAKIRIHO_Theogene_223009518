@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Currency Converter App</title>
+<style>
+    body {
+        font-family: Arial;
+        background: #ccc;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .container {
+        width: 400px;
+        margin: auto;
+        background: #ddd;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    input, select {
+        width: 90%;
+        padding: 10px;
+        margin: 10px 0;
+        font-size: 16px;
+    }
+
+    button {
+        width: 95%;
+        padding: 12px;
+        background: #3498db;
+        color: white;
+        border: none;
+        font-size: 18px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #2980b9;
+    }
+
+    .result-box {
+        background: black;
+        color: white;
+        margin-top: 15px;
+        padding: 20px;
+        font-size: 18px;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Currency Converter APP</h2>
+
+    <!-- Amount -->
+    <input type="number" id="amount" placeholder="Enter Amount in FRW">
+
+    <!-- Currency -->
+    <select id="currency">
+        <option value="USD">USD</option>
+        <option value="EUR">EURO</option>
+    </select>
+
+    <!-- Rate -->
+    <input type="number" id="rate" placeholder="Enter Rate">
+
+    <!-- Button -->
+    <button onclick="convertCurrency()">CONVERT</button>
+
+    <!-- Result -->
+    <div class="result-box" id="result">
+        Result Here...
+    </div>
+</div>
+
+<script>
+function convertCurrency() {
+    let amount = document.getElementById("amount").value;
+    let rate = document.getElementById("rate").value;
+    let currency = document.getElementById("currency").value;
+
+    if (amount === "" || rate === "") {
+        alert("Please fill all fields!");
+        return;
+    }
+
+    let result = amount * rate;
+
+    document.getElementById("result").innerHTML =
+        amount + " FRW = " + result + " " + currency;
+}
+</script>
+
+</body>
+</html>
