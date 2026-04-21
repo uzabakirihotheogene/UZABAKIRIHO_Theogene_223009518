@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration</title>
+</head>
+<link rel="stylesheet" href="style.css">
+<script>
+function toggleOther() {
+    var checkBox = document.getElementById("otherHobby");
+    var textBox = document.getElementById("otherText");
+
+    if (checkBox.checked) {
+        textBox.style.display = "inline";
+    } else {
+        textBox.style.display = "none";
+        textBox.value = "";
+    }
+}
+</script>
+<body>
+
+<h2 align="center">STUDENT REGISTRATION FORM</h2>
+
+<form action="insert.php" method="POST">
+
+FIRST NAME: <input type="text" name="first_name"><br><br>
+LAST NAME: <input type="text" name="last_name"><br><br>
+
+DATE OF BIRTH:
+<select name="day">
+    <option>Day</option>
+    <!-- Days -->
+    <script>
+        for(let i=1;i<=31;i++){
+            document.write(`<option>${i}</option>`);
+        }
+    </script>
+</select>
+
+<select name="month">
+    <option>Month</option>
+    <option>January</option>
+    <option>February</option>
+    <option>March</option>
+    <option>April</option>
+    <option>May</option>
+    <option>June</option>
+    <option>July</option>
+    <option>August</option>
+    <option>September</option>
+    <option>October</option>
+    <option>November</option>
+    <option>December</option>
+</select>
+
+<select name="year">
+    <option>Year</option>
+    <script>
+        for(let i=1980;i<=2026;i++){
+            document.write(`<option>${i}</option>`);
+        }
+    </script>
+</select>
+<br><br>
+
+EMAIL ID: <input type="email" name="email"><br><br>
+MOBILE NUMBER: <input type="text" name="mobile"><br><br>
+
+GENDER:
+<input type="radio" name="gender" value="Male">Male
+<input type="radio" name="gender" value="Female">Female
+<br><br>
+
+ADDRESS:
+<textarea name="address"></textarea><br><br>
+
+CITY: <input type="text" name="city"><br><br>
+PIN CODE: <input type="text" name="pin"><br><br>
+STATE: <input type="text" name="state"><br><br>
+
+COUNTRY:
+<select name="country">
+    <option>Rwanda</option>
+    <option>Kenya</option>
+    <option>Uganda</option>
+    <option>Tanzania</option>
+    <option>India</option>
+</select>
+<br><br>
+
+HOBBIES:
+<input type="checkbox" name="hobbies[]" value="Drawing"> Drawing
+<input type="checkbox" name="hobbies[]" value="Singing"> Singing
+<input type="checkbox" name="hobbies[]" value="Dancing"> Dancing
+<input type="checkbox" name="hobbies[]" value="Sketching"> Sketching
+<input type="checkbox" id="otherHobby" onclick="toggleOther()"> Other
+<input type="text" id="otherText" name="other_hobby" placeholder="Enter your hobby" style="display:none;">
+<br><br>
+
+QUALIFICATION:
+
+<table border="0" width="100%">
+    <tr>
+        <th>Sl.No.</th>
+        <th>Examination</th>
+        <th>Board</th>
+        <th>Percentage</th>
+        <th>Year of Passing</th>
+    </tr>
+
+    <tr>
+        <td>1</td>
+        <td>Class X</td>
+        <td><input type="text" name="board_x"></td>
+        <td><input type="text" name="percent_x"></td>
+        <td><input type="text" name="year_x"></td>
+    </tr>
+
+    <tr>
+        <td>2</td>
+        <td>Class XII</td>
+        <td><input type="text" name="board_xii"></td>
+        <td><input type="text" name="percent_xii"></td>
+        <td><input type="text" name="year_xii"></td>
+    </tr>
+
+    <tr>
+        <td>3</td>
+        <td>Graduation</td>
+        <td><input type="text" name="board_grad"></td>
+        <td><input type="text" name="percent_grad"></td>
+        <td><input type="text" name="year_grad"></td>
+    </tr>
+
+    <tr>
+        <td>4</td>
+        <td>Masters</td>
+        <td><input type="text" name="board_master"></td>
+        <td><input type="text" name="percent_master"></td>
+        <td><input type="text" name="year_master"></td>
+    </tr>
+</table>
+
+<br>
+COURSES APPLIED FOR:
+<input type="radio" name="course" value="BCA">BCA
+<input type="radio" name="course" value="BCom">B.Com
+<input type="radio" name="course" value="BSc">B.Sc
+<br><br>
+
+<input type="submit" value="Submit">
+
+</form>
+
+</body>
+</html>
